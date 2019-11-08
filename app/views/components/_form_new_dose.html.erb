@@ -1,4 +1,4 @@
-  <%= simple_form_for [@cocktail,@dose] do |f| %>
+<%= simple_form_for [@cocktail,@dose] do |f| %>
   <% if @dose.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@dose.errors.count, "error") %> prohibited this dose from being saved:</h2>
