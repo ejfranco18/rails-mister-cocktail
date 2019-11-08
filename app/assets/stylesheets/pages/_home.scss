@@ -1,0 +1,16 @@
+// Specific CSS for your home-page
+body {
+  background-image: url("http://suzi-pratt.com/wp-content/uploads/2017/11/Stranger-Highball-Cocktail-Photography-9.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #3D3B3C;
+}
+
+.layer {
+    background-color: rgba(61, 59, 60, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}

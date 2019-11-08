@@ -1,0 +1,33 @@
+<div class="modal fade modal-<%= cocktail.id %>" id="modal-<%= cocktail.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><%= cocktail.name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="close" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if cocktail.doses.first %>
+        <ul>
+            <% cocktail.doses.each do |dose| %>
+              <li>
+              <%= "#{dose.description} #{dose.ingredient.name}" %>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p><%= "Create doses" %></p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <%= link_to cocktail_doses_path(cocktail.id) do %>
+          <button type="button" class="btn btn-outline-light">Delete a dose</button>
+        <% end %>
+        <%= link_to new_cocktail_dose_path(cocktail.id) do %>
+          <button type="button" class="btn btn-outline-info">Add a dose</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.modal-content {
+  background-color: rgba(27, 27, 28, 0.9);
+}
+
+.modal-title {
+  color: #FFF;
+}
+
+ul {
+  list-style-type: none;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.close {
+  color: rgba(255, 255, 255, 0.8);
+  &:hover {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}

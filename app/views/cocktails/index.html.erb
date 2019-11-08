@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+    <a href="" data-toggle="modal" data-target="#modal-<%= cocktail.id %>">
+      <div class="card-trip rounded">
+        <img src="<%= cocktail.image %>" />
+        <div class="card-trip-infos">
+          <h2><%= cocktail.name %></h2>
+        </div>
+      </div>
+    </a>
+    <%= render 'modal', cocktail: cocktail %>
+    <% end %>
+  </div>
+</div>
