@@ -13,6 +13,9 @@
             <% cocktail.doses.each do |dose| %>
               <li>
               <%= "#{dose.description} #{dose.ingredient.name}" %>
+                <%= link_to cocktail_dose_path(cocktail,dose), method: :delete do  %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
               </li>
             <% end %>
           </ul>
@@ -21,9 +24,6 @@
         <% end %>
       </div>
       <div class="modal-footer">
-        <%= link_to cocktail_doses_path(cocktail.id) do %>
-          <button type="button" class="btn btn-outline-light">Delete a dose</button>
-        <% end %>
         <%= link_to new_cocktail_dose_path(cocktail.id) do %>
           <button type="button" class="btn btn-outline-info">Add a dose</button>
         <% end %>

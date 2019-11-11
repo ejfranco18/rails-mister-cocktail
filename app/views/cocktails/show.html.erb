@@ -1,3 +1,22 @@
-<h1><%= @cocktail.name %></h1>
-<p><%= @cocktail.doses.first[:description] + @cocktail.doses.first.ingredient.name %></p>
+<div class="container">
+  <h1><%= @cocktail.name %></h1>
+  <div>
+    <div><img src="<%= @cocktail.image %>" alt="" class="border border-light rounded"></div>
+    <h2>Ingredients</h2>
+    <% if @cocktail.doses.first %>
+      <ul class="ingredients">
+        <% @cocktail.doses.each do |dose| %>
+          <li>
+            <%= "#{dose.description} #{dose.ingredient.name}" %>
+            <%= link_to cocktail_dose_path(@cocktail,dose), method: :delete do  %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p><%= "Create doses" %></p>
+    <% end %>
+  </div>
+</div>
 

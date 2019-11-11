@@ -1,26 +1,27 @@
-<%= simple_form_for [@cocktail,@dose] do |f| %>
-  <% if @dose.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dose.errors.count, "error") %> prohibited this dose from being saved:</h2>
+<div class="form-row">
+  <%= simple_form_for [@cocktail,@dose] do |f| %>
+    <% if @dose.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@dose.errors.count, "error") %> prohibited this dose from being saved:</h2>
 
-      <ul>
-        <% @dose.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @dose.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.input :description %>
+    </div>
+
+    <div class="field">
+      <%= f.association :ingredient, collection: Ingredient.all, input_html: { multiple: false, class: 'select2'}, include_hidden: false  %>
+    </div>
+
+    <div>
+      <%= f.button :submit, class: "btn btn-outline-light" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.input :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ingredient_id %>
-    <%= f.select :ingredient_id, Ingredient.all.collect { |i| [ i.name, i.id ] }, include_blank: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,5 +1,5 @@
 <div class="form-row">
-  <%= simple_form_for [@cocktail] do |f| %>
+  <%= simple_form_for [@cocktail = Cocktail.new] do |f| %>
     <% if @cocktail.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@cocktail.errors.count, "error") %> prohibited this cocktail from being saved:</h2>
@@ -11,17 +11,9 @@
         </ul>
       </div>
     <% end %>
-    <div class="field">
-      <%= f.input :name %>
-    </div>
 
     <div class="field">
-      <%= f.input :image, :label => "Image URL" %>
-    </div>
-
-    <div>
-      <%= f.button :submit, class: "btn btn-outline-light" %>
+      <%= f.input :name, collection: Cocktail.all, input_html: { multiple: false, class: 'select2'}, include_hidden: false  %>
     </div>
   <% end %>
 </div>
-
